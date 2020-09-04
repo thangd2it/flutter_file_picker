@@ -360,8 +360,10 @@ didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls{
 - (UIViewController *) topMostController
 {
     UIViewController* topMost = [[UIApplication sharedApplication] keyWindow].rootViewController;
+    Log(@"rootviewcontroller: %@", topMost);
     while (topMost.presentedViewController != NULL) {
         topMost = topMost.presentedViewController;
+        Log(@"Has child. Current topMost is %@", topMost);
     }
     
     return topMost;
